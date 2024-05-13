@@ -214,6 +214,9 @@ function Homepage() {
             <div
               key={e.id}
               className="w-full overflow-hidden rounded-md text-white shadow-lg bg-slate-800 hover:shadow-slate-900 hover:shadow-lg"
+              onClick={() => {
+                navigate("/detail-people", { state: { person: e } })
+              }}
             >
               {e.profile_path !== null ? (
                 <img

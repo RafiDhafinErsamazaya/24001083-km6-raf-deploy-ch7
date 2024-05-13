@@ -6,6 +6,7 @@ import DetailMovie from "./DetailMovie";
 import SearchMovie from "./Search";
 import Login from "./login";
 import Register from "./register";
+import DetailPeople from "./DetailPeople";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -20,6 +21,10 @@ export default function App() {
     {
       path: "/detail-movie",
       element: <DetailMovie />,
+    },
+    {
+      path: "/detail-people",
+      element: <DetailPeople />,
     },
     {
       path: "/login",
