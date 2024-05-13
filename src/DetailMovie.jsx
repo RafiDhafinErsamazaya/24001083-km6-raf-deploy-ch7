@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Nav from "./navbar";
 import { fetchMovieDetail } from "./redux/action/detailMovieAction";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function Movie() {
   const detailData = useSelector((state) => state.detail.detailData);
@@ -10,10 +10,19 @@ function Movie() {
   const dispatch = useDispatch();
   let location = useLocation();
   const movieId = location.state?.id;
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchMovieDetail(movieId));
   }, [movieId]);
+
+  useEffect(() => {
+    console.log("localStorage ", localStorage.getItem("token"));
+    if (localStorage.getItem("token") === null) {
+      alert("silahkan login dulu");
+      navigate("/login");
+    }
+  }, []);
 
   return (
     <div>

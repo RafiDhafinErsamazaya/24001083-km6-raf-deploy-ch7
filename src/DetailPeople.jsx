@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Nav from "./navbar";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const API_KEY = "0389f7dff3b6002ad073a6a720cee29b";
 const defaultProfileImage = "/image/profile.JPG"; // Ganti dengan path gambar default Anda
@@ -9,6 +9,7 @@ const defaultProfileImage = "/image/profile.JPG"; // Ganti dengan path gambar de
 function DetailPeople() {
   const location = useLocation();
   const [person, setPerson] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Pastikan ada informasi orang dalam state lokasi sebelum mencoba mendapatkan detail orang
@@ -31,6 +32,13 @@ function DetailPeople() {
     }
   };
 
+  useEffect(() => {
+    console.log("localStorage ", localStorage.getItem("token"));
+    if (localStorage.getItem("token") === null) {
+      alert("silahkan login dulu");
+      navigate("/login");
+    }
+  }, []);
   return (
     <div>
       {/* Navbar */}
@@ -38,7 +46,7 @@ function DetailPeople() {
 
       {/* Data Detail Person */}
       <section>
-        <div className="mt-60 text-left">
+        <div className="mt-20 text-left">
           {person && (
             <div className="container">
               <div className="flex gap-6 mt-12 border-4 border-white rounded-lg items-center bg-slate-800">
