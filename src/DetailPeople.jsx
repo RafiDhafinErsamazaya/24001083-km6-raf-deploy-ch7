@@ -12,7 +12,6 @@ function DetailPeople() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Pastikan ada informasi orang dalam state lokasi sebelum mencoba mendapatkan detail orang
     if (location.state && location.state.person) {
       setPerson(location.state.person);
     } else {

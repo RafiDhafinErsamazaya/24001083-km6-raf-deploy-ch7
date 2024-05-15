@@ -29,45 +29,46 @@ export default function Register() {
   }, []);
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-screen bg-gradient-to-r from-purple-400 to-blue-500">
       <div className="bg-white shadow-md rounded-lg p-8 max-w-md">
-        <h2 className="text-2xl font-semibold mb-4">SIGN UP</h2>
+        <h2 className="text-3xl font-semibold mb-6 text-center text-gray-800">Create an Account</h2>
         <input
-          className="w-full border rounded-md py-2 px-3 mb-4"
+          className="w-full border-b-2 border-gray-400 focus:border-primary rounded-md py-2 px-3 mb-4 focus:outline-none transition duration-300"
           placeholder="Email"
           value={email}
           onChange={(event) => dispatch(setEmail(event.target.value))}
         />
         <input
-          className="w-full border rounded-md py-2 px-3 mb-4"
+          className="w-full border-b-2 border-gray-400 focus:border-primary rounded-md py-2 px-3 mb-4 focus:outline-none transition duration-300"
           placeholder="Name"
           value={name}
           onChange={(event) => dispatch(setName(event.target.value))}
         />
         <input
-          className="w-full border rounded-md py-2 px-3 mb-14"
+          className="w-full border-b-2 border-gray-400 focus:border-primary rounded-md py-2 px-3 mb-14 focus:outline-none transition duration-300"
           type="password"
           placeholder="Password"
           value={password}
           onChange={(event) => dispatch(setPassword(event.target.value))}
         />
-        <div className="flex items-center justify-center mb-4">
+        <div className="flex justify-around items-center mx-10 mb-6">
           <button
-            className="bg-primary text-white font-semibold py-3 px-14 rounded-md transition duration-300 hover:bg-red-700 mr-8"
+            className="bg-blue-500 text-white font-semibold py-3 px-10 rounded-md hover:bg-blue-700 focus:outline-none transition duration-300"
             onClick={handleRegister}
           >
             Register
           </button>
           <button
-            className="bg-slate-300 text-black font-semibold py-3 px-6 rounded-md transition duration-300 hover:bg-gray-400"
+            className="bg-slate-500 text-white font-semibold py-3 px-10 rounded-md hover:bg-slate-700 focus:outline-none transition duration-300"
             onClick={() => {
               navigate("/login");
             }}
           >
-            Back To Login
+            Sign in
           </button>
         </div>
       </div>
     </div>
   );
+  
 }
